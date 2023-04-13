@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktest_task_for_goit=self.webpackChunktest_task_for_goit||[]).push([[997],{997:function(t,e,n){n.r(e),n.d(e,{default:function(){return s}});var r=n(184);function s(){return(0,r.jsx)("h1",{children:"Tweets will be there"})}}}]);
+//# sourceMappingURL=997.affe0698.chunk.js.map
