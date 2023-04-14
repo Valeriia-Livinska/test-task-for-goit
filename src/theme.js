@@ -1,37 +1,31 @@
 export const breakpoints = {
-  mob: '320',
-  tab: '768',
-  desk: '1280',
+  mob: "320",
+  tab: "768",
+  desk: "1280",
 };
 
 export const theme = {
   colors: {
-    black: '#000',
-    white: '#fff',
-    text: '#fff',
-    textColorized: '#E0144C',
-    accentPink: '#E0144C',
-    hoverPink: '#CD104D',
-    accentBlue: '#2146C7',
-    hoverBlue: '#0008C1',
-    border: 'darkgrey',
+    text: "#EBD8FF",
+    blackText: "#373737",
+    purple: "#EBD8FF",
+    hoverPurple: "#D3C2E5",
+    accentMint: "#5CD3A8",
+    hoverMint: "#52BD97",
+    deepPurple: "#4B2A99",
+    hoverDeepPurple: "#432589",
   },
 
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
 
   fonts: {
-    manrope: "'Manrope', sans-serif",
-    inter: "'Inter', sans-serif",
-    poppins: "'Poppins', sans-serif",
     montserrat: "'Montserrat', sans-serif",
   },
 
   fontSizes: {
-    xs: '12px',
-    s: '14px',
-    m: '16px',
-    l: '32px',
-    xl: '64px',
+    s: "16px",
+    m: "18px",
+    l: "20px",
   },
 
   fontWeights: {
@@ -40,24 +34,27 @@ export const theme = {
   },
 
   lineHeights: {
-    body: 1.5,
+    body: 1.2,
     heading: 1.125,
   },
 
   borders: {
-    none: 'none',
-    normal: '1px solid',
-    medium: '2px solid',
-    large: '3px solid',
+    none: "none",
+    normal: "1px solid",
+    medium: "2px solid",
+    large: "3px solid",
   },
 
   radii: {
-    none: '0',
-    normal: '4px',
-    round: '50%',
+    none: "0",
+    small: "4px",
+    normal: "10.3108px",
+    medium: "20px",
+    large: "85.9232px",
+    round: "50%",
   },
 
-  breakpoints: ['320px', '768px', '1280px'],
+  breakpoints: ["320px", "768px", "1280px"],
 
   //mediaQueries
   mq: {
@@ -73,10 +70,10 @@ export const theme = {
 
   transitions: {
     durations: {
-      default: '250ms',
+      default: "250ms",
     },
     functions: {
-      default: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      default: "cubic-bezier(0.4, 0, 0.2, 1)",
     },
   },
 };

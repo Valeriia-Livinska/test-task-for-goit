@@ -1,21 +1,14 @@
-import styled from 'styled-components';
-import homeBackground from '../../assets/images/behzad-ghaffarian-5JcdQfzR_YA-unsplash.webp';
-
-export const Background = styled.div`
-  background-image: url('${homeBackground}');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: contain;
-`;
+import styled from "styled-components";
 
 export const SlideEffect = styled.div`
   position: relative;
+  top: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
   width: 100%;
+  color: ${(p) => p.theme.colors.text};
+  overflow: hidden;
 `;
 
 export const Text = styled.div`
