@@ -1,10 +1,10 @@
-import { HeaderNavLink } from "./Navigation.styled";
+import { NavContainer, HeaderNavLink } from "./Navigation.styled";
 
 export const Navigation = () => {
   return (
-    <nav>
+    <NavContainer>
       <HeaderNavLink to="/">Home</HeaderNavLink>
       <HeaderNavLink to="/tweets">Tweets</HeaderNavLink>
-    </nav>
+    </NavContainer>
   );
 };

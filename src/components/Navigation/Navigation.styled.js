@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+export const NavContainer = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 800px;
+`;
+
 export const HeaderNavLink = styled(NavLink)`
   padding: ${(p) => p.theme.space[2]}px;
   color: ${(p) => p.theme.colors.text};
