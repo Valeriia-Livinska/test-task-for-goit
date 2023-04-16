@@ -1,4 +1,5 @@
 import { Wrapper } from "./Home.styled";
+
 import {
   SlideEffect,
   Text,
@@ -11,16 +12,16 @@ import {
 const Home = () => {
   return (
     <main>
-      <Wrapper>
-        <SlideEffect>
-          <Text>Be inspired</Text>
-          <SlideDown>by</SlideDown>
-          <SlideUp to="/tweets">
-            <WaveText>FOLLOWING</WaveText>
-            <Waves></Waves>
-          </SlideUp>
-        </SlideEffect>
-      </Wrapper>
+        <Wrapper>
+          <SlideEffect>
+            <Text>Be inspired</Text>
+            <SlideDown>by</SlideDown>
+            <SlideUp to="/tweets">
+              <WaveText>FOLLOWING</WaveText>
+              <Waves></Waves>
+            </SlideUp>
+          </SlideEffect>
+        </Wrapper>
     </main>
   );
 };

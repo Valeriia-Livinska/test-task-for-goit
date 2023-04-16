@@ -4,5 +4,5 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: ${(p) => p.theme.space[4]}px;
+  gap: ${(p) => p.theme.space[5]}px;
 `;
