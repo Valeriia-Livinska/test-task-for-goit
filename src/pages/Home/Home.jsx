@@ -1,3 +1,4 @@
+import { Wrapper } from "./Home.styled";
 import {
   SlideEffect,
   Text,
@@ -7,18 +8,21 @@ import {
   Waves,
 } from "./Home.styled";
 
-export default function Home() {
+const Home = () => {
   return (
     <main>
-      <SlideEffect>
-        <Text>Be inspired</Text>
-        <SlideDown>by</SlideDown>
-        {/* <SlideUp>FOLLOWING</SlideUp> */}
-        <SlideUp to="/tweets">
-          <WaveText>FOLLOWING</WaveText>
-          <Waves></Waves>
-        </SlideUp>
-      </SlideEffect>
+      <Wrapper>
+        <SlideEffect>
+          <Text>Be inspired</Text>
+          <SlideDown>by</SlideDown>
+          <SlideUp to="/tweets">
+            <WaveText>FOLLOWING</WaveText>
+            <Waves></Waves>
+          </SlideUp>
+        </SlideEffect>
+      </Wrapper>
     </main>
   );
-}
+};
+
+export default Home;

@@ -1,6 +1,6 @@
 import { NavContainer, HeaderNavLink } from "./Navigation.styled";
 
-export const Navigation = () => {
+const Navigation = () => {
   return (
     <NavContainer>
       <HeaderNavLink to="/">Home</HeaderNavLink>
@@ -8,3 +8,5 @@ export const Navigation = () => {
     </NavContainer>
   );
 };
+
+export default Navigation;
