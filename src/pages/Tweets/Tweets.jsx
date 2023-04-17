@@ -7,14 +7,18 @@ import UsersGallery from "../../components/UsersGallery/UsersGallery";
 import Box from "../../components/Box/Box";
 import Spinner from "../../components/Spinner/Spinner";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+import Loader from "../../components/Loader/Loader";
 import { TweetsWrapper } from "./Tweets.styled";
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-  const [quantityInRes, setQuantityInRes] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // for correct working Loader and Load More because mockapi do not sent a total count in free version
+  const dataTotalCount = 35;
 
   useEffect(() => {
     const getUsers = async () => {
@@ -22,7 +26,9 @@ const Tweets = () => {
       try {
         const data = await fetchUsers(page);
         setUsers((prevUsers) => (page === 1 ? data : [...prevUsers, ...data]));
-        setQuantityInRes(data.length);
+        setTotalCount((prevState) =>
+          page === 1 ? dataTotalCount - data.length : prevState - data.length
+        );
         setError(null);
       } catch (error) {
         setError(error);
@@ -38,9 +44,6 @@ const Tweets = () => {
     setPage((state) => state + 1);
   };
 
-  const limitPerPage = 8;
-  const displayBtn = quantityInRes < limitPerPage ? false : true;
-
   return (
     <main>
       {page === 1 && loading ? (
@@ -50,8 +53,9 @@ const Tweets = () => {
       ) : (
         <Box pb={7}>
           <TweetsWrapper>
-            <UsersGallery users={users}></UsersGallery>
-            {displayBtn && <LoadMoreBtn onClick={incrementPage} />}
+            {users.length > 0 && <UsersGallery users={users}></UsersGallery>}
+            {!!totalCount &&
+              (!loading ? <LoadMoreBtn onClick={incrementPage} /> : <Loader />)}
           </TweetsWrapper>
         </Box>
       )}
