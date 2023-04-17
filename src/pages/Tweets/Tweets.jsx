@@ -32,7 +32,7 @@ const Tweets = () => {
       }
     };
     getUsers();
-  }, [page]);
+  }, [error, page]);
 
   const incrementPage = () => {
     setPage((state) => state + 1);
