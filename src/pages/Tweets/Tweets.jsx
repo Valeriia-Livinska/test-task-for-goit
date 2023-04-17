@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { fetchUsers } from "../../helpers/Api";
+import notifyErr from "../../utilities/notifyErr";
 import UsersGallery from "../../components/UsersGallery/UsersGallery";
 import Box from "../../components/Box/Box";
 import Spinner from "../../components/Spinner/Spinner";
@@ -15,16 +18,17 @@ const Tweets = () => {
 
   useEffect(() => {
     const getUsers = async () => {
+      setLoading(true);
       try {
         const data = await fetchUsers(page);
-        setLoading(true);
         setUsers((prevUsers) => (page === 1 ? data : [...prevUsers, ...data]));
         setQuantityInRes(data.length);
         setError(null);
       } catch (error) {
-        setLoading(true);
         setError(error);
-        console.log("error");
+        notifyErr();
+      } finally {
+        setLoading(false);
       }
     };
     getUsers();
@@ -37,26 +41,24 @@ const Tweets = () => {
   const limitPerPage = 8;
   const displayBtn = quantityInRes < limitPerPage ? false : true;
 
-  if (error) {
-    return <div>Sorry, something went wrong: {error.message}</div>;
-  } else if (!loading) {
-    return (
-      <Box flexDirection="column" alignItems="center" mt={8}>
-        <Spinner />
-      </Box>
-    );
-  } else {
-    return (
-      <main>
+  return (
+    <main>
+      {page === 1 && loading ? (
+        <Box flexDirection="column" alignItems="center" mt={8}>
+          <Spinner />
+        </Box>
+      ) : (
         <Box pb={7}>
           <TweetsWrapper>
             <UsersGallery users={users}></UsersGallery>
             {displayBtn && <LoadMoreBtn onClick={incrementPage} />}
           </TweetsWrapper>
         </Box>
-      </main>
-    );
-  }
+      )}
+
+      <ToastContainer />
+    </main>
+  );
 };
 
 export default Tweets;
