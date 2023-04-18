@@ -1,10 +1,11 @@
 import { ReactComponent as Logo } from "../../../assets/images/icons/logo.svg";
+import { updateIsFollowing } from "../../../helpers/Api";
 import numberWithComma from "../../../utilities/numberWithComma";
+import notifyErr from "../../../utilities/notifyErr";
 import {
   UserCard,
   LogoLink,
   CardTopImg,
-  Line,
   AvaWrapper,
   UserAva,
   TweetsCount,
@@ -12,9 +13,18 @@ import {
   FollowBtn,
 } from "./UserItem.styled.js";
 
-const UserItem = ({ users }) => {
-  return users.map(({ id, user, avatar, tweets, followers }) => {
+const UserItem = ({ users, hadleFollowBtnClick }) => {
+  return users.map(({ id, user, avatar, tweets, followers, isFollowing }) => {
     const followersWithComma = numberWithComma(followers);
+
+    const onFollowClick = async () => {
+      try {
+        const updFollowingUser = await updateIsFollowing(id, isFollowing);
+        hadleFollowBtnClick(updFollowingUser);
+      } catch (error) {
+        notifyErr();
+      }
+    };
 
     return (
       <UserCard key={id}>
@@ -27,12 +37,18 @@ const UserItem = ({ users }) => {
           <Logo style={{ width: "76px", height: "22px" }} />
         </LogoLink>
         <CardTopImg />
-        <Line />
-        <AvaWrapper />
-        <UserAva src={avatar} alt={user} />
+        <AvaWrapper>
+          <UserAva src={avatar} alt={user} />
+        </AvaWrapper>
         <TweetsCount>{tweets} tweets </TweetsCount>
         <FollowersCount>{followersWithComma} followers </FollowersCount>
-        <FollowBtn type="button">follow</FollowBtn>
+        <FollowBtn
+          type="button"
+          onClick={onFollowClick}
+          isFollowing={isFollowing}
+        >
+          {isFollowing ? "following " : "follow"}
+        </FollowBtn>
       </UserCard>
     );
   });

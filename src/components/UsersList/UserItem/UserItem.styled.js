@@ -22,6 +22,20 @@ export const UserCard = styled.article`
   color: ${(p) => p.theme.colors.purple};
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: ${(p) => p.theme.radii.medium};
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 214px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 8px;
+    background: ${(p) => p.theme.colors.purple};
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+      inset 0px -1.71846px 3.43693px #ae7be3,
+      inset 0px 3.43693px 2.5777px #fbf8ff;
+  }
 `;
 
 export const LogoLink = styled.a`
@@ -36,21 +50,11 @@ export const CardTopImg = styled.div`
   background: url(${cardTopImg});
 
   background-repeat: no-repeat;
-`;
-
-export const Line = styled.div`
-  position: absolute;
-  width: 380px;
-  height: 8px;
-  left: 0px;
-  top: 214px;
-
-  background: ${(p) => p.theme.colors.purple};
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+  }
 `;
 
 export const AvaWrapper = styled.div`
+  z-index: 1;
   position: absolute;
   top: 178px;
   left: 150px;
@@ -66,10 +70,12 @@ export const AvaWrapper = styled.div`
 
 export const UserAva = styled.img`
   position: absolute;
-  top: 187.42px;
-  left: 159.48px;
+  top: 50%;
+  left: 50%;
+
   width: 62px;
   border-radius: ${(p) => p.theme.radii.round};
+  transform: translate(-50%, -50%);
 `;
 
 export const TweetsCount = styled.p`
@@ -95,7 +101,8 @@ export const FollowBtn = styled.button`
   height: 50px;
 
   color: ${(p) => p.theme.colors.blackText};
-  background-color: ${(p) => p.theme.colors.purple};
+  background-color: ${(p) =>
+    p.isFollowing ? p.theme.colors.accentMint : p.theme.colors.purple};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: ${(p) => p.theme.radii.normal};
@@ -107,7 +114,8 @@ export const FollowBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${(p) => p.theme.colors.accentMint};
+    background-color: ${(p) =>
+      p.isFollowing ? p.theme.colors.purple : p.theme.colors.accentMint};
     box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
       0px 2px 2px rgb(0 0 0 / 12%);
   }

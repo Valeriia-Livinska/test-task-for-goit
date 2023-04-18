@@ -7,3 +7,8 @@ export const fetchUsers = async (page) => {
   const res = await axios.get(`/users?page=${page}&limit=${limitPerPage}`);
   return res.data;
 };
+
+export const updateIsFollowing = async (id, isFollowing) => {
+  const res = await axios.put(`/users/${id}`, { isFollowing: !isFollowing });
+  return res.data;
+};

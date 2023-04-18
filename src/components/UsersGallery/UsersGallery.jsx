@@ -3,7 +3,7 @@ import UsersList from "../UsersList/UsersList";
 import Box from "../Box/Box";
 import { GoBackBtn } from "./UsersGallery.styled";
 
-const UsersGallery = ({ users }) => {
+const UsersGallery = ({ users, hadleFollowBtnClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,7 +23,11 @@ const UsersGallery = ({ users }) => {
       <GoBackBtn type="button" onClick={handleGoBack}>
         Back
       </GoBackBtn>
-      <UsersList users={users} state={{ from: location }}></UsersList>
+      <UsersList
+        users={users}
+        state={{ from: location }}
+        hadleFollowBtnClick={hadleFollowBtnClick}
+      ></UsersList>
     </Box>
   );
 };

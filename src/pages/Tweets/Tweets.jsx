@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { fetchUsers } from "../../helpers/Api";
 import notifyErr from "../../utilities/notifyErr";
 import UsersGallery from "../../components/UsersGallery/UsersGallery";
@@ -44,6 +42,14 @@ const Tweets = () => {
     setPage((state) => state + 1);
   };
 
+  const hadleFollowBtnClick = (updFollowingUser) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user.id === updFollowingUser.id ? updFollowingUser : user
+      )
+    );
+  };
+
   return (
     <main>
       {page === 1 && loading ? (
@@ -53,14 +59,17 @@ const Tweets = () => {
       ) : (
         <Box pb={7}>
           <TweetsWrapper>
-            {users.length > 0 && <UsersGallery users={users}></UsersGallery>}
+            {users.length > 0 && (
+              <UsersGallery
+                users={users}
+                hadleFollowBtnClick={hadleFollowBtnClick}
+              ></UsersGallery>
+            )}
             {!!totalCount &&
               (!loading ? <LoadMoreBtn onClick={incrementPage} /> : <Loader />)}
           </TweetsWrapper>
         </Box>
       )}
-
-      <ToastContainer />
     </main>
   );
 };
