@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## What is this project about?
 
-[The main idea of ​​the project](./assets/beInspired.jpg)
+![The main idea of ​​the project](./assets/beInspired.jpg)
 
 It's time to be inspired by the tweets of interesting people from the IT world. Now they are all available in one place.
 
