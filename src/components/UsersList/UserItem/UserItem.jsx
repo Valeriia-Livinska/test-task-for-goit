@@ -19,7 +19,7 @@ const UserItem = ({ users, hadleFollowBtnClick }) => {
 
     const onFollowClick = async () => {
       try {
-        const updFollowingUser = await updateIsFollowing(id, isFollowing);
+        const updFollowingUser = await updateIsFollowing(id, isFollowing, followers);
         hadleFollowBtnClick(updFollowingUser);
       } catch (error) {
         notifyErr();
