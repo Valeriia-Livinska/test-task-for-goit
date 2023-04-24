@@ -1,6 +1,6 @@
 {
-  "name": "test-task-for-goit",
-  "homepage": "https://valeriia-livinska.github.io/test-task-for-goit/",
+  "name": "tweets",
+  "homepage": "https://valeriia-livinska.github.io/tweets/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

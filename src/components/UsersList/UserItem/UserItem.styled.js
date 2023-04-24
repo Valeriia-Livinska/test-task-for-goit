@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import cardTopImg from "../../../assets/images/cardImg.webp";
+import cardTopImg from "../../assets/images/cardImg.webp";
 
-export const UserItem = styled.li``;
+export const UserUnit = styled.li``;
 
 export const UserCard = styled.article`
   position: relative;

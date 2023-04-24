@@ -1,4 +1,4 @@
-import UserItem from "../UsersList/UserItem/UserItem";
+import UserItem from "../../components/UserItem/UserItem";
 import { List } from "./UsersList.styled";
 
 const UsersList = ({ users, hadleFollowBtnClick }) => {
