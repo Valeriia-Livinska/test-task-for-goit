@@ -9,7 +9,7 @@ import App from "./App";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename="/test-task-for-goit">
+      <BrowserRouter basename="/tweets">
         <App />
       </BrowserRouter>
     </ThemeProvider>
