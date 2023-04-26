@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://63ab93b5fdc006ba6060fe38.mockapi.io";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 const limitPerPage = 8;
 
 export const fetchUsers = async (page) => {

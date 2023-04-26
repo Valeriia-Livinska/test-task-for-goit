@@ -3,7 +3,7 @@ import { HeaderNavLink } from "../../components/Navigation/Navigation.styled";
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-
+  
   color: ${(p) => p.theme.colors.blackText};
   background: white;
   border-radius: ${(p) => p.theme.radii.medium};
