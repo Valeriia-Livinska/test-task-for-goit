@@ -20,6 +20,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
           branch: gh-pages
           folder: build
+        env:
+          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
